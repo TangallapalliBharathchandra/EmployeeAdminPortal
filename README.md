@@ -7,29 +7,19 @@ EmployeeAdminPortal is a .NET-based web application designed for managing employ
 Features
 
 Employee management (CRUD operations: Create, Read, Update, Delete)
-
 User authentication and authorization
-
 Responsive UI for better user experience
-
 RESTful API integration
-
 Database support using SQL Server
-
 Logging and exception handling
 
 Technologies Used
 
 Backend: ASP.NET Core MVC, C#
-
 Frontend: HTML, CSS, JavaScript (Optional: React or Angular if used)
-
-Database: SQL Server
-
+Database: SQL Server 
 IDE: Visual Studio 2022
-
 Version Control: Git
-
 Dependency Management: NuGet
 
 Prerequisites
@@ -37,11 +27,9 @@ Prerequisites
 Before running the project, ensure you have the following installed:
 
 .NET 6.0 or later
-
-SQL Server
-
+SQL Server 
+SQL Server Management Studio (SSMS) 20.2
 Visual Studio 2022
-
 Git (optional for version control)
 
 Setup Instructions
@@ -58,11 +46,28 @@ dotnet restore
 
 Set up the database:
 
+Install SQL Server and SQL Server Management Studio (SSMS) if not installed.
+
 Update appsettings.json with your SQL Server connection string.
 
 Apply migrations (if using Entity Framework):
 
 dotnet ef database update
+
+Alternatively, create the database manually in SQL Server:
+
+CREATE DATABASE EmployeeAdminPortal;
+
+Create a table structure for employees:
+
+CREATE TABLE Employees (
+    Id INT IDENTITY(1,1) PRIMARY KEY,
+    Name NVARCHAR(100) NOT NULL,
+    Email NVARCHAR(100) UNIQUE NOT NULL,
+    Position NVARCHAR(50),
+    Department NVARCHAR(50),
+    DateHired DATE
+);
 
 Run the application:
 
